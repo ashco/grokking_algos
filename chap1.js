@@ -4,7 +4,7 @@ const test1 = [1, 2, 4, 5, 6, 7, 8, 12, 45, 65, 766, 8765];
 
 const binarySearch = (arr, item) => {
   let low = 0;
-  let high = arr.length-1;
+  let high = arr.length - 1;
 
   while (low <= high) {
     // Find middle index between low and high
@@ -20,20 +20,17 @@ const binarySearch = (arr, item) => {
     // Cut down range on each pass
     if (guess < item) {
       low = mid + 1;
-    }
-    else {
+    } else {
       high = mid - 1;
     }
   }
   // Return null if no answer is found
   return null;
-}
+};
 
 // console.log(binarySearch(test1, 12));
 // console.log(binarySearch(test1, 5));
 // console.log(binarySearch(test1, 3));
-
-
 
 // EXERCISES
 // 1.1
@@ -78,14 +75,40 @@ const binarySearch2 = (arr, item) => {
     }
     if (value < item) {
       min = mid + 1;
-    }
-    else {
+    } else {
       max = mid - 1;
+    }
+  }
+  return null;
+};
+
+// console.log(binarySearch2(test1, 5));
+// console.log(binarySearch2(test1, 12));
+// console.log(binarySearch2(test1, 3));
+
+// BINARY SEARCH 3
+const test3 = [1, 2, 4, 5, 6, 7, 8, 12, 45, 65, 766, 8765];
+
+function binarySearch3(arr, item) {
+  let min = 0;
+  let max = arr.length - 1;
+
+  while (min <= max) {
+    let mid = Math.floor((min + max) / 2);
+    let value = arr[mid];
+
+    if (value === item) {
+      return mid;
+    }
+    if (value > item) {
+      max = mid - 1;
+    } else {
+      min = mid + 1;
     }
   }
   return null;
 }
 
-// console.log(binarySearch2(test1, 5));
-// console.log(binarySearch2(test1, 12));
-// console.log(binarySearch2(test1, 3));
+// console.log(binarySearch3(test3, 5));
+console.log(binarySearch3(test3, 122));
+// console.log(binarySearch3(test3, 3));
