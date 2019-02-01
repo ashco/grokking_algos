@@ -99,27 +99,43 @@ function listCount2(arr) {
 // console.log(listCount2([1, 2, 5, 6, 77]));
 // console.log(listCount2([1, 4, 3, 5, 6, 77, 345]));
 
+// 4.3
+// Find the maximum number in a list... recursively!!!!
+
+function maxNum(arr) {
+  // base
+  if (arr.length <= 1) {
+    return arr[0];
+  }
+  // recursive
+}
+
+const arr431 = [2];
+const arr432 = [2, 5, 77, 45, 4, 555, 1, 78];
+
+console.log(maxNum(arr431));
+
 // ex442 - recursive binary search
 
-function binarySearch(arr, val) {
-  let min = 0;
-  let max = arr.length - 1;
+// function binarySearch(arr, val) {
+//   let min = 0;
+//   let max = arr.length - 1;
 
-  while (min <= max) {
-    let mid = Math.floor((min + max) / 2);
-    let curVal = arr[mid];
+//   while (min <= max) {
+//     let mid = Math.floor((min + max) / 2);
+//     let curVal = arr[mid];
 
-    if (curVal === val) {
-      return mid;
-    }
-    if (curVal < val) {
-      min = mid + 1;
-    } else {
-      max = mid - 1;
-    }
-  }
-  return null;
-}
+//     if (curVal === val) {
+//       return mid;
+//     }
+//     if (curVal < val) {
+//       min = mid + 1;
+//     } else {
+//       max = mid - 1;
+//     }
+//   }
+//   return null;
+// }
 
 function binarySearchRecursive(arr, val, low, high) {
   let min = low || 0;
@@ -144,4 +160,4 @@ function binarySearchRecursive(arr, val, low, high) {
 const array442 = [0, 1, 2, 5, 7, 33, 44, 55];
 // const array442 = [1, 4, 5, 6, 56, 66, 789, 12131];
 
-console.log(binarySearchRecursive(array442, 5));
+// console.log(binarySearchRecursive(array442, 5));
