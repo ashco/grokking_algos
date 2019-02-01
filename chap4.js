@@ -86,10 +86,10 @@ function sum2(arr) {
 
 function listCount2(arr) {
   // base
-  if (arr.length <= 0) {
+  if (arr.length === 0) {
     return 0;
-  } else if (arr.length === 1) {
-    return 1;
+    // } else if (arr.length === 1) {
+    //   return 1;
     // recursive
   } else {
     return 1 + listCount2(arr.splice(1));
@@ -102,18 +102,22 @@ function listCount2(arr) {
 // 4.3
 // Find the maximum number in a list... recursively!!!!
 
-function maxNum(arr) {
+function maxNum(list) {
   // base
-  if (arr.length <= 1) {
-    return arr[0];
+  if (list.length === 0) {
+    return null;
+  } else if (list.length === 1) {
+    return list[0];
   }
   // recursive
+  list[0] < list[1] ? list.splice(0, 1) : list.splice(1, 1);
+  return maxNum(list);
 }
 
-const arr431 = [2];
+const arr431 = [2, 5, 77];
 const arr432 = [2, 5, 77, 45, 4, 555, 1, 78];
 
-console.log(maxNum(arr431));
+// console.log(maxNum(arr432));
 
 // ex442 - recursive binary search
 
@@ -161,3 +165,43 @@ const array442 = [0, 1, 2, 5, 7, 33, 44, 55];
 // const array442 = [1, 4, 5, 6, 56, 66, 789, 12131];
 
 // console.log(binarySearchRecursive(array442, 5));
+
+function quicksort2(arr) {
+  if (arr.length < 2) {
+    return arr;
+  }
+  const pivot = arr[0];
+
+  const less = arr.filter(val => val < pivot);
+  const mid = arr.filter(val => val === pivot);
+  const more = arr.filter(val => val > pivot);
+
+  return [...quicksort2(less), ...mid, ...quicksort2(more)];
+}
+// function quicksort2(arr) {
+//   if (arr.length < 2) {
+//     return arr;
+//   }
+//   const lArr = [];
+//   const cArr = [];
+//   const rArr = [];
+//   const pivot = arr[0];
+
+//   arr.forEach(val => {
+//     if (val === pivot) {
+//       cArr.push(val);
+//     } else if (val < pivot) {
+//       lArr.push(val);
+//     } else if (val > pivot) {
+//       rArr.push(val);
+//     }
+//   });
+
+//   return [...quicksort2(lArr), pivot, ...quicksort2(rArr)];
+// }
+
+const qs21Arr = [3, 66];
+const qs22Arr = [3, 3, 3, 66, 44, 32, 1, 333, 42, 14, 67];
+
+// console.log(quicksort2(qs21Arr));
+// console.log(quicksort2(qs22Arr));
