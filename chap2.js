@@ -70,9 +70,8 @@ function findSmallest2(arr) {
 
 function selectionSort2(arr) {
   const sortedArr = [];
-  const arrLength = arr.length;
 
-  for (let i = 0; i < arrLength; i++) {
+  while (arr.length > 0) {
     let index = findSmallest2(arr);
     sortedArr.push(arr[index]);
     arr.splice(index, 1);
